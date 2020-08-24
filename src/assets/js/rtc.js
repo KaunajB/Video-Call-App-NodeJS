@@ -369,20 +369,7 @@ window.addEventListener('load', () => {
 
         function hideVideoByDefault() {
             console.log('hiding video by default');
-            let elem = document.getElementById('toggle-video');
-
-            if (myStream && myStream.getVideoTracks()[0].enabled) {
-                console.log('myStream found', myStream);
-                e.target.classList.remove('fa-video');
-                e.target.classList.add('fa-video-slash');
-                elem.setAttribute('title', 'Show Video');
-
-                myStream.getVideoTracks()[0].enabled = false;
-            } else {
-                console.log('myStream not found', myStream);
-            }
-
-            broadcastNewTracks(myStream, 'video');
+            document.getElementById('toggle-video').onclick();
         }
 
 
@@ -402,6 +389,7 @@ window.addEventListener('load', () => {
 
         //When the video icon is clicked
         document.getElementById('toggle-video').addEventListener('click', (e) => {
+            console.log('toggling video');
             e.preventDefault();
 
             let elem = document.getElementById('toggle-video');
