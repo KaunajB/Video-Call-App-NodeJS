@@ -37,9 +37,9 @@ window.addEventListener('load', () => {
         var recordedStream = [];
         var mediaRecorder = '';
 
-        // hideVideoByDefault();
         //Get user video by default
         getAndSetUserStream();
+        // hideVideoByDefault();
 
 
         socket.on('connect', () => {
@@ -116,11 +116,12 @@ window.addEventListener('load', () => {
 
         function getAndSetUserStream() {
             console.log('getAndSetUserStream');
-            h.getUserFullMedia(false).then((stream) => {
+            h.getUserFullMedia(true).then((stream) => {
                 //save my stream
                 myStream = stream;
 
                 h.setLocalStream(stream);
+                hideVideoByDefault();
             }).catch((e) => {
                 console.error(`stream error: ${e}`);
             });
@@ -163,7 +164,7 @@ window.addEventListener('load', () => {
             }
 
             else {
-                h.getUserFullMedia(false).then((stream) => {
+                h.getUserFullMedia(true).then((stream) => {
                     console.log('getUserFullMedia');
                     //save my stream
                     myStream = stream;
