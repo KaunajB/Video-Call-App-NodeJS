@@ -73,6 +73,7 @@ window.addEventListener('load', () => {
             socket.on('sdp', async (data) => {
                 if (data.description.type === 'offer') {
                     pc.onnegotiationneeded = e => {
+                        if (e) console.log('pc onnegotiationneeded error', e);
                         if (pc.signalingState != "stable") return;
                     }
                     data.description ? await pc[data.sender].setRemoteDescription(new RTCSessionDescription(data.description)) : '';
