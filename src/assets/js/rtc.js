@@ -37,8 +37,8 @@ window.addEventListener('load', () => {
         var recordedStream = [];
         var mediaRecorder = '';
 
-        //Get user video by default
-        getAndSetUserStream();
+        // //Get user video by default
+        // getAndSetUserStream();
 
 
         socket.on('connect', () => {
