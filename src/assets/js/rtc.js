@@ -79,7 +79,7 @@ window.addEventListener('load', () => {
                     }
                     data.description ? await pc[data.sender].setRemoteDescription(new RTCSessionDescription(data.description)) : '';
 
-                    h.getUserFullMedia().then(async (stream) => {
+                    h.getUserFullMedia(true).then(async (stream) => {
                         console.log('socket sdp getUserFullMedia');
                         if (!document.getElementById('local').srcObject) {
                             h.setLocalStream(stream);
@@ -116,7 +116,7 @@ window.addEventListener('load', () => {
 
         function getAndSetUserStream() {
             console.log('getAndSetUserStream');
-            h.getUserFullMedia().then((stream) => {
+            h.getUserFullMedia(false).then((stream) => {
                 //save my stream
                 myStream = stream;
 
@@ -163,7 +163,7 @@ window.addEventListener('load', () => {
             }
 
             else {
-                h.getUserFullMedia().then((stream) => {
+                h.getUserFullMedia(false).then((stream) => {
                     console.log('getUserFullMedia');
                     //save my stream
                     myStream = stream;
@@ -505,7 +505,7 @@ window.addEventListener('load', () => {
             }
 
             else {
-                h.getUserFullMedia().then((videoStream) => {
+                h.getUserFullMedia(true).then((videoStream) => {
                     startRecording(videoStream);
                 }).catch(() => { });
             }

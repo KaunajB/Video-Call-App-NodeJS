@@ -53,10 +53,10 @@ export default {
     },
 
 
-    getUserFullMedia() {
+    getUserFullMedia(video) {
         if (this.userMediaAvailable()) {
             return navigator.mediaDevices.getUserMedia({
-                video: false,
+                video: video,
                 audio: {
                     echoCancellation: true,
                     noiseSuppression: true
