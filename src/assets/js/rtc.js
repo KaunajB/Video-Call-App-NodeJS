@@ -80,6 +80,7 @@ window.addEventListener('load', () => {
                     data.description ? await pc[data.sender].setRemoteDescription(new RTCSessionDescription(data.description)) : '';
 
                     h.getUserFullMedia().then(async (stream) => {
+                        console.log('socket sdp getUserFullMedia');
                         if (!document.getElementById('local').srcObject) {
                             h.setLocalStream(stream);
                         }
@@ -114,6 +115,7 @@ window.addEventListener('load', () => {
 
 
         function getAndSetUserStream() {
+            console.log('getAndSetUserStream');
             h.getUserFullMedia().then((stream) => {
                 //save my stream
                 myStream = stream;
@@ -143,7 +145,7 @@ window.addEventListener('load', () => {
 
         function init(createOffer, partnerName) {
             console.log('init');
-            myStream = undefined;
+            myStream = '';
             pc[partnerName] = new RTCPeerConnection(h.getIceServer());
 
             if (screen && screen.getTracks().length) {
