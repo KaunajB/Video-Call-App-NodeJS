@@ -174,6 +174,7 @@ window.addEventListener('load', () => {
                     });
 
                     h.setLocalStream(stream);
+                    hideVideoByDefault();
                 }).catch((e) => {
                     console.error(`stream error: ${e}`);
                 });
