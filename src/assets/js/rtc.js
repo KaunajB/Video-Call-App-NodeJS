@@ -364,7 +364,7 @@ window.addEventListener('load', () => {
             console.log('hiding video by default');
             let elem = document.getElementById('toggle-video');
 
-            if (myStream.getVideoTracks()[0].enabled) {
+            if (myStream && myStream.getVideoTracks()[0].enabled) {
                 e.target.classList.remove('fa-video');
                 e.target.classList.add('fa-video-slash');
                 elem.setAttribute('title', 'Show Video');
