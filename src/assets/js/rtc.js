@@ -4,6 +4,9 @@
  */
 import h from './helpers.js';
 
+const socketURL = 'https://data-analytics.jubi.ai';
+const socketPath = '/video-call/stream';
+
 window.addEventListener('load', () => {
     const room = h.getQString(location.href, 'room');
     const username = sessionStorage.getItem('username');
@@ -25,9 +28,6 @@ window.addEventListener('load', () => {
         }
 
         var pc = [];
-
-        const socketURL = 'https://data-analytics.jubi.ai';
-        const socketPath = '/video-call/stream';
 
         let socket = io(socketURL, { path: socketPath });
 
@@ -72,6 +72,9 @@ window.addEventListener('load', () => {
 
             socket.on('sdp', async (data) => {
                 if (data.description.type === 'offer') {
+                    pc.onnegotiationneeded = e => {
+                        if (pc.signalingState != "stable") return;
+                    }
                     data.description ? await pc[data.sender].setRemoteDescription(new RTCSessionDescription(data.description)) : '';
 
                     h.getUserFullMedia().then(async (stream) => {
