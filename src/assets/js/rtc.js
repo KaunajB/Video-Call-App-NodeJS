@@ -157,6 +157,7 @@ window.addEventListener('load', () => {
 
             else {
                 h.getUserFullMedia().then((stream) => {
+                    console.log('getUserFullMedia');
                     //save my stream
                     myStream = stream;
 
