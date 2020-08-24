@@ -16,6 +16,6 @@ app.get('/', (req, res) => {
 });
 
 
-io.of('/stream').on('connection', stream);
+io.of('/video-call/stream').on('connection', stream);
 
 server.listen(port, () => console.log('Server listening on port', port));
