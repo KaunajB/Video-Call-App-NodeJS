@@ -37,8 +37,9 @@ window.addEventListener('load', () => {
         var recordedStream = [];
         var mediaRecorder = '';
 
-        // //Get user video by default
-        // getAndSetUserStream();
+        //Get user video by default
+        getAndSetUserStream();
+        hideVideoByDefault();
 
 
         socket.on('connect', () => {
@@ -357,6 +358,19 @@ window.addEventListener('load', () => {
             mediaRecorder.onerror = function (e) {
                 console.error(e);
             };
+        }
+
+        function hideVideoByDefault() {
+            console.log('hiding video by default');
+            let elem = document.getElementById('toggle-video');
+
+            if (myStream.getVideoTracks()[0].enabled) {
+                e.target.classList.remove('fa-video');
+                e.target.classList.add('fa-video-slash');
+                elem.setAttribute('title', 'Show Video');
+
+                myStream.getVideoTracks()[0].enabled = false;
+            }
         }
 
 
