@@ -369,7 +369,7 @@ window.addEventListener('load', () => {
 
         function hideVideoByDefault() {
             console.log('hiding video by default');
-            document.getElementById('toggle-video').onclick();
+            document.getElementById('toggle-video').click();
         }
 
 
