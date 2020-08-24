@@ -26,7 +26,10 @@ window.addEventListener('load', () => {
 
         var pc = [];
 
-        let socket = io('/video-call/stream');
+        const socketURL = 'https://data-analytics.jubi.ai';
+        const socketPath = '/video-call/stream';
+
+        let socket = io(socketURL, { path: socketPath });
 
         var socketId = '';
         var myStream = '';
