@@ -86,6 +86,9 @@ window.addEventListener('load', () => {
     document.getElementById('enter-room').addEventListener('click', (e) => {
         e.preventDefault();
 
+        console.log('entered room');
+        helpers.closeVideo();
+
         let name = document.querySelector('#username').value;
 
         if (name) {
