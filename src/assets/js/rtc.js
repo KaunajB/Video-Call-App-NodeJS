@@ -372,12 +372,17 @@ window.addEventListener('load', () => {
             let elem = document.getElementById('toggle-video');
 
             if (myStream && myStream.getVideoTracks()[0].enabled) {
+                console.log('myStream found', myStream);
                 e.target.classList.remove('fa-video');
                 e.target.classList.add('fa-video-slash');
                 elem.setAttribute('title', 'Show Video');
 
                 myStream.getVideoTracks()[0].enabled = false;
+            } else {
+                console.log('myStream not found', myStream);
             }
+
+            broadcastNewTracks(myStream, 'video');
         }
 
 
