@@ -38,8 +38,8 @@ window.addEventListener('load', () => {
         var mediaRecorder = '';
 
         // hideVideoByDefault();
-        // //Get user video by default
-        // getAndSetUserStream();
+        //Get user video by default
+        getAndSetUserStream();
 
 
         socket.on('connect', () => {
