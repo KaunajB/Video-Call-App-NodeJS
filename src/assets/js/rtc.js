@@ -163,19 +163,19 @@ window.addEventListener('load', () => {
             }
 
             else {
-                // h.getUserFullMedia().then((stream) => {
-                //     console.log('getUserFullMedia');
-                //     //save my stream
-                //     myStream = stream;
+                h.getUserFullMedia().then((stream) => {
+                    console.log('getUserFullMedia');
+                    //save my stream
+                    myStream = stream;
 
-                //     stream.getTracks().forEach((track) => {
-                //         pc[partnerName].addTrack(track, stream);//should trigger negotiationneeded event
-                //     });
+                    stream.getTracks().forEach((track) => {
+                        pc[partnerName].addTrack(track, stream);//should trigger negotiationneeded event
+                    });
 
-                //     h.setLocalStream(stream);
-                // }).catch((e) => {
-                //     console.error(`stream error: ${e}`);
-                // });
+                    h.setLocalStream(stream);
+                }).catch((e) => {
+                    console.error(`stream error: ${e}`);
+                });
             }
 
 
