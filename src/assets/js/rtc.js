@@ -142,15 +142,19 @@ window.addEventListener('load', () => {
 
 
         function init(createOffer, partnerName) {
+            console.log('init');
+            myStream = undefined;
             pc[partnerName] = new RTCPeerConnection(h.getIceServer());
 
             if (screen && screen.getTracks().length) {
+                console.log('screen && getTracks');
                 screen.getTracks().forEach((track) => {
                     pc[partnerName].addTrack(track, screen);//should trigger negotiationneeded event
                 });
             }
 
             else if (myStream) {
+                console.log('myStream');
                 myStream.getTracks().forEach((track) => {
                     pc[partnerName].addTrack(track, myStream);//should trigger negotiationneeded event
                 });
